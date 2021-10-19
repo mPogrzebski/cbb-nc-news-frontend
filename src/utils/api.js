@@ -28,3 +28,4 @@ export const getCommentsByArticleId = (article_id) =>{
     return response.data.comments;
   })
 }
+
