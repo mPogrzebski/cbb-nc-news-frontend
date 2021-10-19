@@ -6,6 +6,7 @@ import Topics from "./components/Topics";
 import Article from "./components/Articles/Article";
 import Articles from "./components/Articles/Articles";
 import Page404 from "./components/Page404";
+import Search from "./components/Search";
 function App() {
   return (
     <BrowserRouter>
@@ -26,10 +27,13 @@ function App() {
             <Articles />
           </Route>
 
+          <Route exact path="/search" >
+            <Search />
+          </Route>
+
           <Route exact path="/articles/:article_id">
             <Article />
           </Route>
-
 
           <Route>
             <Page404 />
