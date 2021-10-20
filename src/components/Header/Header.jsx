@@ -5,12 +5,12 @@ const Header = () => {
 
     
     return (
-        <div>
-            <h1>CBB News</h1>
-            <SearchBar />
-            <button>Log in</button>
-            <button>Create account</button>
-        </div>
+      <div>
+        <h1>CBB News</h1>
+        <SearchBar />
+        <button lassName="">Log in</button>
+        <button>Create account</button>
+      </div>
     );
 };
 

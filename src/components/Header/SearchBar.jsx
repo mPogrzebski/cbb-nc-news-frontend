@@ -31,7 +31,7 @@ export default function SearchBar() {
           onChange={handleChange}
           name="search"
         />
-        <button type="submit">
+        <button type="submit" className="colo">
           <FaSearch />
         </button>
       </form>
