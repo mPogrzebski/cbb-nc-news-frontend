@@ -2,23 +2,38 @@ import React, { useEffect, useState } from "react";
 import { getAllArticles } from "../../utils/api";
 
 const Articles = () => {
-  const [allArticles, setAllArticles] = useState([]);
+  const [articles, setArticles] = useState([]);
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(5);
 
   useEffect(() => {
-    getAllArticles()
+    getAllArticles(limit, page)
       .then((articles) => {
-        setAllArticles(articles);
+        setArticles(articles);
       })
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+    console.log(articles);
+  }, [page, limit]);
+
+  function prevPage() {
+    setPage((currPage) => {
+      return currPage - 1;
+    });
+  }
+
+  function nextPage() {
+    setPage((currPage) => {
+      return currPage + 1;
+    });
+  }
 
   return (
     <div>
       <h2>All articles</h2>
       <ul>
-        {allArticles.map((article) => {
+        {articles.map((article) => {
           return (
             <li key={article.article_id}>
               <p>{article.title}</p>
@@ -26,6 +41,11 @@ const Articles = () => {
           );
         })}
       </ul>
+      <button onClick={prevPage} disabled={page <= 1}>
+        Previous Page
+      </button>
+      <p>Page {page}</p>
+      <button onClick={nextPage}>Next Page</button>
     </div>
   );
 };

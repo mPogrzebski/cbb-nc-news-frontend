@@ -27,7 +27,7 @@ function App() {
             <Articles />
           </Route>
 
-          <Route exact path="/search" >
+          <Route exact path="/search">
             <Search />
           </Route>
 
