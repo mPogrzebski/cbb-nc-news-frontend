@@ -2,7 +2,8 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import Nav from "./components/Nav";
 import Main from "./components/Main";
-import Topics from "./components/Topics";
+import Topics from "./components/Topics/Topics";
+import Topic from "./components/Topics/Topic";
 import Article from "./components/Articles/Article";
 import Articles from "./components/Articles/Articles";
 import Page404 from "./components/Page404";
@@ -21,6 +22,10 @@ function App() {
 
           <Route exact path="/topics">
             <Topics />
+          </Route>
+
+          <Route exact path="/topics/:topic">
+            <Topic/>
           </Route>
 
           <Route exact path="/articles">

@@ -14,7 +14,7 @@ const Articles = () => {
       .catch((err) => {
         console.log(err);
       });
-    console.log(articles);
+
   }, [page, limit]);
 
   function prevPage() {

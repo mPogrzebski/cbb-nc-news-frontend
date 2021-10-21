@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { getAllTopics } from '../utils/api';
+import { getAllTopics } from '../../utils/api';
+import { Link } from 'react-router-dom';
 
 const Topics = () => {
 const [allTopics, setAllTopics] = useState([])
@@ -20,10 +21,10 @@ useEffect(() => {
 
             {allTopics.map(topic=>{
                 return (
-                    <li key={topic.slug}>
-                        {topic.slug}
-                    </li>
-                )
+                  <li key={topic.slug}>
+                    <Link to={`/topics/${topic.slug}`} topic={topic.slug}>{topic.slug}</Link>
+                  </li>
+                );
             })}
             </ul>
         </div>

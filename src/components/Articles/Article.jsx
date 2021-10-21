@@ -11,6 +11,7 @@ const Article = () => {
   const { article_id } = useParams();
   const [error, setError] = useState(null);
   const [votes, setVotes] = useState(0);
+  
   useEffect(() => {
     setError(null);
     getArticleById(article_id)
@@ -44,7 +45,7 @@ const Article = () => {
 
   function decVotes() {
     setVotes((currVotes) => currVotes - 1);
-
+         
     patchArticleVoteCount(article_id, { inc_votes: -1 })
       .then((response) => {
         setArticle(response);
