@@ -49,6 +49,13 @@ export const patchArticleVoteCount = (article_id, payload) => {
   });
 };
 
+export const postArticleComment = (article_id, payload) => {
+  return newsAPI.post(`/articles/${article_id}/comments`, payload).then((response) => {
+    return response.data.comment;
+  });
+};
+
+
 export const getCommentsByArticleId = (article_id) => {
   return newsAPI.get(`/articles/${article_id}/comments`).then((response) => {
     return response.data.comments;

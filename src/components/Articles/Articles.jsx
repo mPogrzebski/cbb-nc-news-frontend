@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { getAllArticles } from "../../utils/api";
+import { Link } from "react-router-dom";
 
 const SortBy = {
   CREATED_AT: "created_at",
@@ -54,9 +55,12 @@ const Articles = () => {
         {articles.map((article) => {
           return (
             <li key={article.article_id}>
+              <Link to={`/articles/${article.article_id}`}>
+                <h3>{article.title}</h3>
+              </Link>
               <p>
-                {article.title} | votes : {article.votes} | comments :{" "}
-                {article.comment_count} | created at {article.created_at}
+                 votes : {article.votes} | comments : {article.comment_count} |
+                created at {article.created_at}
               </p>
             </li>
           );

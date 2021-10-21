@@ -14,12 +14,11 @@ export default function Enter() {
   const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
-    if (newUser) {
-      setUser(newUser);
-    }
+
 
     if (inputUsername === userPlaceholder) {
       setUser(finalUsername);
+      localStorage.setItem('user', user);
     }
 
   }, [finalUsername, newUser, user]);
@@ -36,7 +35,6 @@ export default function Enter() {
   const handleLogin = (event) => {
     event.preventDefault();
     setFinalUsername(inputUsername);
-
   };
 
   if (user) {

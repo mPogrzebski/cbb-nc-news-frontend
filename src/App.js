@@ -9,7 +9,18 @@ import Articles from "./components/Articles/Articles";
 import Page404 from "./components/Page404";
 import Search from "./components/Search";
 import Enter from "./components/User/Enter";
+import { useContext, useEffect } from "react";
+import { UserContext } from "./contexts/User";
+
 function App() {
+  const { user, setUser } = useContext(UserContext);
+
+  useEffect(() => {
+    if (localStorage.getItem("user") != null) {
+      setUser(localStorage.getItem("user"));
+    }
+  }, []);
+
   return (
     <BrowserRouter>
       <div className="App">
@@ -40,7 +51,7 @@ function App() {
           <Route exact path="/enter">
             <Enter />
           </Route>
-          
+
           <Route exact path="/enter/:new_user">
             <Enter />
           </Route>
