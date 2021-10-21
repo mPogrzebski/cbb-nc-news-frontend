@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext} from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router";
 import { UserContext } from "../../contexts/User";
 import { Redirect } from "react-router-dom";
@@ -8,42 +8,61 @@ export default function Enter() {
   const { new_user } = useParams();
   const [inputUsername, setInputUserName] = useState("");
   const [finalUsername, setFinalUsername] = useState("");
+  const [newUser, setNewUser] = useState(null);
 
 
-  const { user, setUser } = useContext(UserContext)
+  const { user, setUser } = useContext(UserContext);
 
-    useEffect(()=>{
-        if (inputUsername === userPlaceholder) {
-          setUser(finalUsername);
-        }
-    }, [finalUsername, user])
+  useEffect(() => {
+    if (newUser) {
+      setUser(newUser);
+    }
 
-  if (new_user) {
-    return <h1>Create account</h1>;
-  }
+    if (inputUsername === userPlaceholder) {
+      setUser(finalUsername);
+    }
+
+  }, [finalUsername, newUser, user]);
 
   const handleChange = (event) => {
     setInputUserName(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleCreateUser = (event) => {
     event.preventDefault();
-    setFinalUsername(inputUsername);
+    setNewUser(inputUsername);
   };
 
-  if(user){
-      return <Redirect to={'/'}></Redirect>
+  const handleLogin = (event) => {
+    event.preventDefault();
+    setFinalUsername(inputUsername);
+
+  };
+
+  if (user) {
+    return <Redirect to={"/"}></Redirect>;
+  }
+
+  if (new_user) {
+    return (
+      <>
+        <h1>Welcome to CBB news community</h1>
+        <form onSubmit={handleCreateUser} onChange={handleChange}>
+          <input type={"text"} placeholder="Username" />
+          <button type="submit">Create</button>
+        </form>
+      </>
+    );
   }
 
   return (
     <div>
       <h1>Log in</h1>
-      <form onSubmit={handleSubmit} onChange={handleChange}>
+      <form onSubmit={handleLogin} onChange={handleChange}>
         <input type={"text"} placeholder="Username" />
         <button type="submit">Continue</button>
+
       </form>
-      <p>{inputUsername}</p>
-      <p>{user}</p>
     </div>
   );
 }

@@ -16,6 +16,8 @@ export default function Topic() {
       });
   }, []);
 
+
+
   if (articles === 0) {
     return <p>Loading....</p>;
   }
