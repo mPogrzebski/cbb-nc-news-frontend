@@ -15,12 +15,19 @@ export const getAllArticles = (limit = 5, page = 1, topic = null) => {
 };
 
 export const getArticlesByTopic = (topic) => {
-
-
   return newsAPI
     .get("/articles", { params: { topic: topic } })
     .then((response) => {
       return response.data.articles;
+    });
+};
+
+export const getSearch = (searchWord) => {
+  return newsAPI
+    .get("/search", { params: { searchWord: searchWord } })
+    .then((response) => {
+
+      return response.data.query;
     });
 };
 
