@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom/cjs/react-router-dom.min";
 export default function SearchBar() {
   const [searchTerm, setSearchTerm] = useState("");
   const [redirect, setRedirect] = useState(false);
-  const [finalSearch, setFinalSearch] = useState('')
+  const [finalSearch, setFinalSearch] = useState("");
 
   const handleChange = (event) => {
     setSearchTerm(event.target.value);
@@ -13,7 +13,7 @@ export default function SearchBar() {
 
   const handleSubmit = (event) => {
     setFinalSearch(searchTerm);
-    setSearchTerm('')
+    setSearchTerm("");
     event.preventDefault();
     setRedirect(true);
   };
@@ -31,7 +31,7 @@ export default function SearchBar() {
           onChange={handleChange}
           name="search"
         />
-        <button type="submit" className="colo">
+        <button type="submit">
           <FaSearch />
         </button>
       </form>

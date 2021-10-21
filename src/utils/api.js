@@ -4,11 +4,11 @@ const newsAPI = axios.create({
   baseURL: "https://cbb-news.herokuapp.com/api",
 });
 
-export const getAllArticles = (limit = 5, page = 1, topic = null) => {
+export const getAllArticles = (limit = 5, page = 1, sort_by) => {
   const offset = (page - 1) * limit + 1;
 
   return newsAPI
-    .get("/articles", { params: { limit, offset } })
+    .get("/articles", { params: { limit, offset, sort_by } })
     .then((response) => {
       return response.data.articles;
     });

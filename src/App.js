@@ -8,6 +8,7 @@ import Article from "./components/Articles/Article";
 import Articles from "./components/Articles/Articles";
 import Page404 from "./components/Page404";
 import Search from "./components/Search";
+import Enter from "./components/User/Enter";
 function App() {
   return (
     <BrowserRouter>
@@ -25,7 +26,7 @@ function App() {
           </Route>
 
           <Route exact path="/topics/:topic">
-            <Topic/>
+            <Topic />
           </Route>
 
           <Route exact path="/articles">
@@ -34,6 +35,14 @@ function App() {
 
           <Route exact path="/search">
             <Search />
+          </Route>
+
+          <Route exact path="/enter">
+            <Enter />
+          </Route>
+          
+          <Route exact path="/enter/:new_user">
+            <Enter />
           </Route>
 
           <Route exact path="/articles/:article_id">
