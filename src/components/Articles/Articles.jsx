@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import { getAllArticles } from "../../utils/api";
-import { Link } from "react-router-dom";
 import ArticleDisplayElement from "./ArticleDisplayElement";
 const SortBy = {
   CREATED_AT: "created_at",
@@ -40,24 +39,49 @@ const Articles = () => {
     setSort_by(event.target.value);
   }
 
+  function handleLimitChange(event) {
+    setLimit(event.target.value)
+  }
+
   return (
     <div className="section">
       <h2 className="title has-text-centered">All articles</h2>
 
-      <div className="block  has-text-">
-        <label className="label" htmlFor="sort_by">
-          Sort by:{" "}
-        </label>
-        <div className="select is-primary">
-          <select
-            name="sort_by"
-            className="sort_by"
-            onChange={handleSortChange}
-          >
-            <option value={SortBy.CREATED_AT}>Created at</option>
-            <option value={SortBy.COMMENT_COUNT}>Comment count</option>
-            <option value={SortBy.VOTES}>Votes received</option>
-          </select>
+      <div className="block flex is-flex-direction-row ">
+        {/* Sort by dropbox */}
+        <div className="block  has-text-">
+          <label className="label" htmlFor="sort_by">
+            Sort by:{" "}
+          </label>
+          <div className="select is-primary">
+            <select
+              name="sort_by"
+              className="sort_by"
+              onChange={handleSortChange}
+            >
+              <option value={SortBy.CREATED_AT}>Created at</option>
+              <option value={SortBy.COMMENT_COUNT}>Comment count</option>
+              <option value={SortBy.VOTES}>Votes received</option>
+            </select>
+          </div>
+        </div>
+
+        {/* Limit dropbox */}
+        <div className="block  has-text-">
+          <label className="label" htmlFor="limit">
+            Articles per page:{" "}
+          </label>
+          <div className="select is-primary">
+            <select
+              name="limit"
+              className="limit"
+              onChange={handleLimitChange}
+            >
+              <option value={5}>5</option>
+              <option value={10}>10</option>
+              <option value={15}>15</option>
+            </select>
+          </div>
         </div>
       </div>
 
@@ -66,13 +90,6 @@ const Articles = () => {
           return (
             <li key={article.article_id}>
               <ArticleDisplayElement article_id={article.article_id} />
-              {/* <Link to={`/articles/${article.article_id}`}>
-                <h3>{article.title}</h3>
-              </Link>
-              <p>
-                votes : {article.votes} | comments : {article.comment_count} |
-                created at {article.created_at}
-              </p> */}
             </li>
           );
         })}

@@ -13,13 +13,13 @@ import { useContext, useEffect } from "react";
 import { UserContext } from "./contexts/User";
 
 function App() {
-  const { user, setUser } = useContext(UserContext);
+  const {  setUser } = useContext(UserContext);
 
   useEffect(() => {
     if (localStorage.getItem("user") != null) {
       setUser(localStorage.getItem("user"));
     }
-  }, []);
+  }, [setUser]);
 
   return (
     <BrowserRouter>

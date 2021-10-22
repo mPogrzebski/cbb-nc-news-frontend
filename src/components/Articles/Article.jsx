@@ -1,18 +1,14 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { FaArrowAltCircleDown, FaArrowAltCircleUp } from "react-icons/fa";
+import { GiTechnoHeart } from "react-icons/gi";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../contexts/User";
-import { GiTechnoHeart } from "react-icons/gi";
 import {
   getArticleById,
   patchArticleVoteCount,
-  postArticleComment,
+  postArticleComment
 } from "../../utils/api";
 import Comments from "./Comments";
-import {
-  FaArrowAltCircleDown,
-  FaArrowAltCircleUp,
-  FaArrowCircleDown,
-} from "react-icons/fa";
 const Article = () => {
   const { user } = useContext(UserContext);
 
@@ -37,7 +33,7 @@ const Article = () => {
         setError(err);
         console.log(err);
       });
-  }, [article_id]);
+  }, [article_id, article.created_at]);
 
   if (error) {
     return <>Article does not exist</>;

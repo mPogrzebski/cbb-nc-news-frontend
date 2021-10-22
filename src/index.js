@@ -12,7 +12,7 @@ ReactDOM.render(
       <footer className="footer">
         <div className="content has-text-centered">
           <p>
-            <a href="https://github.com/mPogrzebski" target={"_blank"}>
+            <a href="https://github.com/mPogrzebski" target={"_blank"} rel="noreferrer">
               Mateusz Pogrzebski
             </a>
           </p>

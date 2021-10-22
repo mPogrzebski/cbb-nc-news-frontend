@@ -14,15 +14,15 @@ export default function ArticleDisplayElement({ article_id }) {
     getArticleById(article_id)
       .then((response) => {
         setArticle(response);
-        let parsedDate = new Date(Date.parse(article.created_at))
-    
+        let parsedDate = new Date(Date.parse(article.created_at));
+
         setDate(parsedDate.toDateString());
       })
       .catch((err) => {
         setError(err);
         console.log(err);
       });
-  }, []);
+  }, [article_id, article.created_at]);
   if (error) {
     return <>Article does not exist</>;
   }
