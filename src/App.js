@@ -1,6 +1,6 @@
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
-import Nav from "./components/Nav";
+
 import Main from "./components/Main";
 import Topics from "./components/Topics/Topics";
 import Topic from "./components/Topics/Topic";
@@ -23,9 +23,8 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="App">
+      <div className="container is-max-desktop">
         <Header />
-        <Nav />
 
         <Switch>
           <Route exact path="/">
@@ -66,6 +65,7 @@ function App() {
         </Switch>
       </div>
     </BrowserRouter>
+   
   );
 }
 

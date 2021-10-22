@@ -1,13 +1,18 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import { UserContext } from "../../contexts/User";
+import { GiTechnoHeart } from "react-icons/gi";
 import {
   getArticleById,
   patchArticleVoteCount,
   postArticleComment,
 } from "../../utils/api";
 import Comments from "./Comments";
-
+import {
+  FaArrowAltCircleDown,
+  FaArrowAltCircleUp,
+  FaArrowCircleDown,
+} from "react-icons/fa";
 const Article = () => {
   const { user, setUser } = useContext(UserContext);
 
@@ -68,9 +73,8 @@ const Article = () => {
   };
 
   const postComment = (event) => {
-
-    if(newComment.length < 10){
-      alert('Comment too short')
+    if (newComment.length < 10) {
+      alert("Comment too short");
       return;
     }
 
@@ -80,8 +84,7 @@ const Article = () => {
     };
     postArticleComment(article_id, payload)
       .then((response) => {
-        console.log(response.comment);
-        alert('Comment posted succesfuly')
+        alert("Comment posted succesfuly");
       })
       .catch((err) => {
         console.log(err);
@@ -90,24 +93,34 @@ const Article = () => {
     setNewComment("");
   };
   return (
-    <div>
+    <div className="section">
       <h2>Article:</h2>
       <h3>{article.title}</h3>
       <p>{article.author}</p>
-      <button onClick={incVotes}>+</button>
-      <p>{votes}</p>
-      <button onClick={decVotes}> -</button>
+      <button className="button" onClick={incVotes}>
+        <FaArrowAltCircleUp />
+      </button>
+
+      <GiTechnoHeart />
+      {votes}
+
+      <button className="button" onClick={decVotes}>
+        {" "}
+        <FaArrowAltCircleDown />
+      </button>
       {user ? (
         <div>
-          <label for="comment_box">Post comment as {user}</label>
+          <label htmlFor="comment_box">Post comment as {user}</label>
           <textarea
             value={newComment}
-            className="comment_box"
+            className="comment_box textarea"
             rows={3}
             cols={50}
             onChange={handleChange}
           ></textarea>
-          <button onClick={postComment}>Submit</button>
+          <button className="button is-primary" onClick={postComment}>
+            Submit
+          </button>
         </div>
       ) : null}
       <Comments article_id={article_id} />

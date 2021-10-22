@@ -15,10 +15,9 @@ useEffect(() => {
 }, [])
 
     return (
-        <div>
+        <div className='section'>
             <h2>Topics</h2>
             <ul>
-
             {allTopics.map(topic=>{
                 return (
                   <li key={topic.slug}>

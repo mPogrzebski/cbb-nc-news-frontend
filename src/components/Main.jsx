@@ -17,12 +17,12 @@ const Main = () => {
   }, []);
 
   return (
-    <div>
+    <div className="section">
       {latestArticles.map((article) => {
         return (
-          <li key={article.article_id}>
-            <ArticleDisplayElement article_id={article.article_id}/>
-          </li>
+          <div key={article.article_id}>
+            <ArticleDisplayElement article_id={article.article_id} />
+          </div>
         );
       })}
     </div>

@@ -23,17 +23,18 @@ export default function SearchBar() {
       {redirect ? (
         <Redirect to={`/search?searchWord=${finalSearch}`}></Redirect>
       ) : null}
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit} className="control has-icons-right">
         <input
+          className="input is-small is-link"
           type="search"
           placeholder="Search..."
           value={searchTerm}
           onChange={handleChange}
           name="search"
         />
-        <button type="submit">
-          <FaSearch />
-        </button>
+        <span class="icon is-right">
+          <FaSearch/>
+        </span>
       </form>
     </>
   );
