@@ -4,38 +4,17 @@ import { GiTechnoHeart } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { getArticleById } from "../../utils/api";
 
+export default function ArticleDisplayElement({ article }) {
+  let parsedDate = new Date(Date.parse(article.created_at));
 
-export default function ArticleDisplayElement({ article_id }) {
-  const [article, setArticle] = useState({});
+  let date = parsedDate.toDateString();
 
-  const [error, setError] = useState(null);
-  const [date, setDate] = useState(null);
-
-  useEffect(() => {
-    setError(null);
-    getArticleById(article_id)
-      .then((response) => {
-        setArticle(response);
-        let parsedDate = new Date(Date.parse(article.created_at));
-
-        setDate(parsedDate.toDateString());
-      })
-      .catch((err) => {
-        setError(err);
-        console.log(err);
-      });
-  }, [article_id, article.created_at]);
-  if (error) {
-    return <>Article does not exist</>;
-  }
 
   return (
     <div className="card mb-3">
       <div className="card-header p-1">
         <h1 className="tag is-medium is-primary ">{article.author}</h1>
-        <time className="ml-5 tag is-medium is-info is-light">
-        {date}
-        </time>
+        <time className="ml-5 tag is-medium is-info is-light">{date}</time>
       </div>
       <div className="card-content">
         <p className="title">

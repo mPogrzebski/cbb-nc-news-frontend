@@ -21,7 +21,7 @@ const Main = () => {
       {latestArticles.map((article) => {
         return (
           <div key={article.article_id}>
-            <ArticleDisplayElement article_id={article.article_id} />
+            <ArticleDisplayElement article={article} />
           </div>
         );
       })}

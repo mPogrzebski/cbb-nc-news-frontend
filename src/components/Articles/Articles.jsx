@@ -89,7 +89,7 @@ const Articles = () => {
         {articles.map((article) => {
           return (
             <li key={article.article_id}>
-              <ArticleDisplayElement article_id={article.article_id} />
+              <ArticleDisplayElement article={article} />
             </li>
           );
         })}
