@@ -1,8 +1,9 @@
 import { useContext, useState } from "react";
 import { GiMegabot } from "react-icons/gi";
 import { Link } from "react-router-dom";
-import { UserContext } from "../contexts/User";
-import SearchBar from "./Header/SearchBar";
+import { UserContext } from "../../contexts/User";
+import SearchBar from "./SearchBar";
+
 
 const Nav = () => {
   const [isActive, setIsActive] = useState(false);
@@ -29,7 +30,7 @@ const Nav = () => {
           
           </Link>
           <div className="navbar-item">
-            <SearchBar />
+            <SearchBar/>
           </div>
           <a
             onClick={() => {

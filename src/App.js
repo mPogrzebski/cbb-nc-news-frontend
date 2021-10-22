@@ -2,8 +2,10 @@ import { useContext, useEffect } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Article from "./components/Articles/Article";
 import Articles from "./components/Articles/Articles";
-import Header from "./components/Header/Header";
+import Nav from "./components/Header/Nav";
+
 import Main from "./components/Main";
+
 import Page404 from "./components/Page404";
 import Search from "./components/Search";
 import Topic from "./components/Topics/Topic";
@@ -24,7 +26,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="flex is-justify-content-center is-align-content-center container is-max-desktop">
-        <Header />
+        <Nav/>
         <h1 className="mt-5 title has-text-centered">Welcome to CBB news!</h1>
         <Switch>
           <Route exact path="/">
