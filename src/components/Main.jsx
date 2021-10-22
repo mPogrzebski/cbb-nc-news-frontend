@@ -14,7 +14,7 @@ const Main = () => {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [limit]);
 
   return (
     <div className="section">

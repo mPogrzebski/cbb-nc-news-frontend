@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { getArticlesByTopic } from "../../utils/api";
 import ArticleDisplayElement from "../Articles/ArticleDisplayElement";
-import { Link } from "react-router-dom";
 
 export default function Topic() {
   const { topic } = useParams();
@@ -16,7 +15,7 @@ export default function Topic() {
       .catch((err) => {
         console.log(err);
       });
-  }, []);
+  }, [topic]);
 
 
 

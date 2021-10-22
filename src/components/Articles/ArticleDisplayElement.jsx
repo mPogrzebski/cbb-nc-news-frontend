@@ -1,8 +1,10 @@
-import { useState, useEffect } from "react";
-import { getArticleById } from "../../utils/api";
-import { GiTechnoHeart } from "react-icons/gi";
+import { useEffect, useState } from "react";
 import { FaComment } from "react-icons/fa";
+import { GiTechnoHeart } from "react-icons/gi";
 import { Link } from "react-router-dom";
+import { getArticleById } from "../../utils/api";
+
+
 export default function ArticleDisplayElement({ article_id }) {
   const [article, setArticle] = useState({});
 

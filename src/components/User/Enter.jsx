@@ -1,7 +1,7 @@
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams } from "react-router";
-import { UserContext } from "../../contexts/User";
 import { Redirect } from "react-router-dom";
+import { UserContext } from "../../contexts/User";
 
 export default function Enter() {
   const userPlaceholder = "jessjelly";
@@ -10,17 +10,13 @@ export default function Enter() {
   const [finalUsername, setFinalUsername] = useState("");
   const [newUser, setNewUser] = useState(null);
 
-
   const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
-
-
     if (inputUsername === userPlaceholder) {
       setUser(finalUsername);
-      localStorage.setItem('user', user);
+      localStorage.setItem("user", user);
     }
-
   }, [finalUsername, newUser, user]);
 
   const handleChange = (event) => {
@@ -59,7 +55,6 @@ export default function Enter() {
       <form onSubmit={handleLogin} onChange={handleChange}>
         <input type={"text"} placeholder="Username" />
         <button type="submit">Continue</button>
-
       </form>
     </div>
   );
