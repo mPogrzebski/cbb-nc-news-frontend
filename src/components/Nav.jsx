@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
+import { GiMegabot } from "react-icons/gi";
 import { Link } from "react-router-dom";
 import { UserContext } from "../contexts/User";
-import SearchBar from './Header/SearchBar'
+import SearchBar from "./Header/SearchBar";
 
 const Nav = () => {
   const [isActive, setIsActive] = useState(false);
@@ -15,14 +16,21 @@ const Nav = () => {
 
   return (
     <div>
-      <nav className="navbar is-primary has-shadow" role="navigation" aria-label="main navigation">
+      <nav
+        className="navbar is-primary has-shadow"
+        role="navigation"
+        aria-label="main navigation"
+      >
         <div className="navbar-brand">
-          <Link to='/'>
-              <h1 className="card-header-title navbar-item">CBB News</h1>
-          </Link>
-            <div className='navbar-item'>
-          <SearchBar />
+          <Link to="/">
+            <div className="navbar-item is-size-2">
+              <GiMegabot />
             </div>
+          
+          </Link>
+          <div className="navbar-item">
+            <SearchBar />
+          </div>
           <a
             onClick={() => {
               setIsActive(!isActive);
