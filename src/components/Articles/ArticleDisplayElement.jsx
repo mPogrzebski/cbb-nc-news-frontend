@@ -5,7 +5,7 @@ import { FaComment } from "react-icons/fa";
 import { Link } from "react-router-dom";
 export default function ArticleDisplayElement({ article_id }) {
   const [article, setArticle] = useState({});
-  const [author, setAuthor] = useState({});
+
   const [error, setError] = useState(null);
   const [date, setDate] = useState(null);
 
@@ -14,8 +14,9 @@ export default function ArticleDisplayElement({ article_id }) {
     getArticleById(article_id)
       .then((response) => {
         setArticle(response);
-        let parsedDate = Date.parse(article.created_at).toDateString()
-        setDate(parsedDate);
+        let parsedDate = new Date(Date.parse(article.created_at))
+    
+        setDate(parsedDate.toDateString());
       })
       .catch((err) => {
         setError(err);
@@ -31,7 +32,7 @@ export default function ArticleDisplayElement({ article_id }) {
       <div className="card-header p-1">
         <h1 className="tag is-medium is-primary ">{article.author}</h1>
         <time className="ml-5 tag is-medium is-info is-light">
-          {date}
+        {date}
         </time>
       </div>
       <div className="card-content">

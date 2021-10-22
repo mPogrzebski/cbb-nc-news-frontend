@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { getCommentsByArticleId } from "../../utils/api";
+import { GiTechnoHeart } from "react-icons/gi";
 
 export default function Comments({ article_id }) {
   const [comments, setComments] = useState([]);
@@ -15,13 +16,23 @@ export default function Comments({ article_id }) {
   }, []);
 
   return (
-    <>
-      <h2>Comments:</h2>
+    <div className="section">
+      <h2 className="is-size-5">Comments ({comments.length})</h2>
       <ul>
         {comments.map((comment) => {
-          return <li key={comment.comment_id}>{comment.body}</li>;
+          return (
+            <li className="box" key={comment.comment_id}>
+              <div className="mb-2 tag is-small is-primary ">{comment.author}</div>
+              <div className="ml-1 tag is-small is-danger is-light">
+                {comment.votes}
+                <GiTechnoHeart />
+              </div>
+
+              <div>{comment.body}</div>
+            </li>
+          );
         })}
       </ul>
-    </>
+    </div>
   );
 }

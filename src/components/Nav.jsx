@@ -27,7 +27,6 @@ const Nav = () => {
             onClick={() => {
               setIsActive(!isActive);
             }}
-            onF
             role="button"
             className={`navbar-burger burger ${isActive ? "is-active" : ""}`}
             aria-label="menu"

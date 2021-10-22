@@ -32,8 +32,8 @@ export default function SearchBar() {
           onChange={handleChange}
           name="search"
         />
-        <span class="icon is-right">
-          <FaSearch/>
+        <span className="icon is-right">
+          <FaSearch />
         </span>
       </form>
     </>

@@ -23,9 +23,9 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="container is-max-desktop">
+      <div className="flex is-justify-content-center is-align-content-center container is-max-desktop">
         <Header />
-
+        <h1 className="mt-5 title has-text-centered">Welcome to CBB news!</h1>
         <Switch>
           <Route exact path="/">
             <Main />
@@ -65,7 +65,6 @@ function App() {
         </Switch>
       </div>
     </BrowserRouter>
-   
   );
 }
 
