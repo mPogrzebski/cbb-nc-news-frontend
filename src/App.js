@@ -1,16 +1,16 @@
-import { BrowserRouter, Switch, Route } from "react-router-dom";
-import Header from "./components/Header/Header";
-
-import Main from "./components/Main";
-import Topics from "./components/Topics/Topics";
-import Topic from "./components/Topics/Topic";
+import { useContext, useEffect } from "react";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
 import Article from "./components/Articles/Article";
 import Articles from "./components/Articles/Articles";
+import Header from "./components/Header/Header";
+import Main from "./components/Main";
 import Page404 from "./components/Page404";
 import Search from "./components/Search";
+import Topic from "./components/Topics/Topic";
+import Topics from "./components/Topics/Topics";
 import Enter from "./components/User/Enter";
-import { useContext, useEffect } from "react";
 import { UserContext } from "./contexts/User";
+
 
 function App() {
   const {  setUser } = useContext(UserContext);
