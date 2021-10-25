@@ -78,11 +78,11 @@ const Nav = () => {
               </>
             ) : (
               <>
-                <Link className="navbar-item" to={"/enter"}>
+                <Link className="navbar-item" to={"/login"}>
                   <button className="button is-primary is-small">Log in</button>
                 </Link>
 
-                <Link className="navbar-item" to={"/enter/new_user"}>
+                <Link className="navbar-item" to={"/new_user"}>
                   <button className="button is-primary is-small">
                     Create account
                   </button>

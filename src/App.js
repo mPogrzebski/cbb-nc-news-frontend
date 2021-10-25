@@ -10,7 +10,8 @@ import Page404 from "./components/Page404";
 import Search from "./components/Search";
 import Topic from "./components/Topics/Topic";
 import Topics from "./components/Topics/Topics";
-import Enter from "./components/User/Enter";
+import Login from "./components/User/Login";
+import New_user from "./components/User/New_user";
 import { UserContext } from "./contexts/User";
 
 
@@ -49,12 +50,12 @@ function App() {
             <Search />
           </Route>
 
-          <Route exact path="/enter">
-            <Enter />
+          <Route exact path="/login">
+            <Login />
           </Route>
 
-          <Route exact path="/enter/:new_user">
-            <Enter />
+          <Route exact path="/new_user">
+            <New_user />
           </Route>
 
           <Route exact path="/articles/:article_id">

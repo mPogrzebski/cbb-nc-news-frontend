@@ -67,7 +67,7 @@ const Articles = () => {
         </div>
 
         {/* Limit dropbox */}
-        <div className="block  has-text-">
+        <div className="block">
           <label className="label" htmlFor="limit">
             Articles per page:{" "}
           </label>
